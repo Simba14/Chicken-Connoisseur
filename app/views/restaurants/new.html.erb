@@ -1,0 +1,11 @@
+<!-- <form action='/restaurants' method='post'>
+  Name<input name='Name'></input>
+  <input type='submit' value='Create Restaurant'></input>
+</form> -->
+
+
+<%= form_for @restaurant do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit %>
+<% end %>
