@@ -50,6 +50,7 @@ end
 group :test do
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'spring-commands-rspec'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
