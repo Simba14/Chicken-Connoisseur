@@ -3,6 +3,16 @@
   <input type='submit' value='Create Restaurant'></input>
 </form> -->
 
+<% if @restaurant.errors.any? %>
+  <section id='errors'>
+    <h2><%= pluralize(@restaurant.errors.count, "error") %> prohibited this restaurant from being saved: </h2>
+    <ul>
+      <% @restaurant.errors.full_messages.each do |message| %>
+      <li> <%= message %> </li>
+      <% end %>
+    </ul>
+  </section>
+ <% end %>
 
 <%= form_for @restaurant do |f| %>
   <%= f.label :name %>

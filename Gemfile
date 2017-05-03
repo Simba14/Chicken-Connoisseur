@@ -48,6 +48,7 @@ group :development do
 end
 
 group :test do
+  gem 'rspec-collection_matchers'
   gem 'rspec-rails'
   gem 'capybara'
   gem 'spring-commands-rspec'
