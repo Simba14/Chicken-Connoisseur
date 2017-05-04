@@ -23,7 +23,6 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
-    p @restaurant.reviews.first
   end
 
   def edit

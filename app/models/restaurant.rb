@@ -5,4 +5,10 @@ class Restaurant < ApplicationRecord
 
   validates :name, length: { minimum: 3 }, uniqueness: true
 
+  def build_review(review_params, user)
+    review = user.reviews.new(review_params)
+    review.update(restaurant_id: self.id)
+    review
+  end
+
 end
