@@ -1,8 +1,10 @@
 class RestaurantsController < ApplicationController
 
   before_action :authenticate_user!, :except => [:index, :show]
+  before_action :require_permission, :only => [:edit, :destroy]
 
   def index
+    @user = current_user || User.new
     @restaurants = Restaurant.all
   end
 
@@ -43,5 +45,11 @@ class RestaurantsController < ApplicationController
 
   def restaurant_params
     params.require(:restaurant).permit(:name, :description)
+  end
+
+  def require_permission
+    if current_user.id != Restaurant.find(params[:id]).user_id
+      redirect_to '/'
+    end
   end
 end

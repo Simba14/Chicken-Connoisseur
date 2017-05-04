@@ -74,7 +74,7 @@ feature 'restaurants' do
 
     context 'editing restaurants' do
 
-      scenario 'let a user edit a restaurant' do
+      scenario 'creator can edit a restaurant' do
         visit '/restaurants'
         click_link 'Edit KFC'
         fill_in 'Name', with: 'Kentucky Fried Chicken'
@@ -85,15 +85,34 @@ feature 'restaurants' do
         expect(page).to have_content 'Deep fried goodness'
         expect(current_path).to eq "/restaurants/#{Restaurant.last.id}"
       end
+
+      scenario 'regular user cannot see an edit link' do
+        click_link "Sign out"
+        sign_up(email: 'seasn@123.com')
+        expect(page).not_to have_link 'Edit KFC'
+      end
+
+      scenario 'regular user cannot edit restaurant' do
+        click_link "Sign out"
+        sign_up(email: 'seasn@123.com')
+        visit("/restaurants/#{Restaurant.last.id}/edit")
+        expect(current_path).to eq '/'
+      end
     end
 
     context 'deleting restaurants' do
 
-      scenario 'remove a restaurant when a user clicks a delete link' do
+      scenario 'creator can remove a restaurant' do
         visit '/restaurants'
         click_link 'Delete KFC'
         expect(page).not_to have_content 'KFC'
         expect(page).to have_content 'Restaurant deleted successfully'
+      end
+
+      scenario 'regular user cannot see a delete link' do
+        click_link "Sign out"
+        sign_up(email: 'seasn@123.com')
+        expect(page).not_to have_link 'Delete KFC'
       end
     end
   end

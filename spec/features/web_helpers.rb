@@ -1,8 +1,10 @@
-def sign_up
+def sign_up(email: 'Emil@123.com',
+            password: 'testtest',
+            password_confirmation: 'testtest')
   visit '/users/sign_up'
-  fill_in 'Email', with: 'Emil@123.com'
-  fill_in 'Password', with: 'testtest'
-  fill_in 'Password confirmation', with: 'testtest'
+  fill_in 'Email', with: email
+  fill_in 'Password', with: password
+  fill_in 'Password confirmation', with: password_confirmation
   click_button 'Sign up'
   visit '/'
 end
