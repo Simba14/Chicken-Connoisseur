@@ -9,8 +9,11 @@ describe Restaurant, type: :model do
   end
 
   it 'is not valid unless has a unique name' do
-    Restaurant.create(name: 'Moes Tavern')
+    user = User.create(email: 'test@123.com', password: '123456', password_confirmation: '123456')
+    Restaurant.create(name: 'Moes Tavern', user_id: user.id)
     restaurant = Restaurant.new(name: 'Moes Tavern')
     expect(restaurant).to have(1).error_on(:name)
   end
+
+  it { should belong_to(:user) }
 end
