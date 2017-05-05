@@ -5,5 +5,7 @@
   <div id='review'>
     Thoughts: <%= review.thoughts %>
     Rating: <%= review.rating %>
+    <%= pluralize review.endorsements.count, 'endorsement' %>
+    <%= link_to 'Endorse review', new_review_endorsement_path(review) %>
   </div>
 <% end %>
