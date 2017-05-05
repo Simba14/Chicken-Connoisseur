@@ -1,4 +1,5 @@
 <p><%= @restaurant.name %></p>
+<p><%= image_tag @restaurant.image.url(:thumb) %> </p>
 <p><%= @restaurant.description %></p>
 <% @restaurant.reviews.each do |review| %>
   <div id='review'>
