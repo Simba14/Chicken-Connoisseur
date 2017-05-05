@@ -15,3 +15,11 @@ def create_restaurant
   fill_in 'Description', with: 'Deep fried goodness'
   click_button 'Create Restaurant'
 end
+
+def leave_review(thoughts, rating)
+  visit '/'
+  click_link 'Review KFC'
+  fill_in 'Thoughts', with: thoughts
+  select rating, from: 'Rating'
+  click_button 'Leave Review'
+end

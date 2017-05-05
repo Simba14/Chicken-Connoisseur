@@ -11,4 +11,12 @@ class Restaurant < ApplicationRecord
     review
   end
 
+  def average_rating
+    if self.reviews == []
+      "N/A"
+    else
+      self.reviews.first.rating
+    end
+  end
+
 end
