@@ -28,7 +28,7 @@ feature 'reviewing' do
     click_link 'Sign out'
     sign_up(email: 'pete@123.com')
     leave_review('it was peng', 5)
-    expect(page).to have_content 'Average rating: 4'
+    expect(page).to have_content 'Average rating: 🔥🔥🔥🔥'
   end
 
   scenario 'displays the total number of ratings' do

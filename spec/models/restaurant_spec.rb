@@ -30,19 +30,20 @@ describe Restaurant, type: :model do
       it 'returns that rating' do
         user = User.create(email: 'test@123.com', password: '123456', password_confirmation: '123456')
         restaurant = Restaurant.create(name: 'Sams Beef', user_id: user.id)
-        restaurant.reviews.create(rating: 4)
+        restaurant.reviews.create(rating: 4, user_id: user.id)
         expect(restaurant.average_rating).to eq 4
       end
+    end
 
     context '2 reviews' do
       it 'returns the average rating' do
         user = User.create(email: 'test@123.com', password: '123456', password_confirmation: '123456')
         restaurant = Restaurant.create(name: 'Sams Beef', user_id: user.id)
-        restaurant.reviews.create(rating: 2)
-        restaurant.reviews.create(rating: 4)
+        restaurant.reviews.create(rating: 2, user_id: user.id)
+        user = User.create(email: 'test2@123.com', password: '123456', password_confirmation: '123456')
+        restaurant.reviews.create(rating: 4, user_id: user.id)
         expect(restaurant.average_rating).to eq 3
       end
-    end
     end
   end
 end

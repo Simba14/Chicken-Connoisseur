@@ -12,15 +12,7 @@ class Restaurant < ApplicationRecord
   end
 
   def average_rating
-    if self.reviews == []
-      "N/A"
-    else
-      total = 0
-      self.reviews.each do |review|
-        total += review.rating
-      end
-      self.rating = total / self.reviews.length
-    end
+    return "N/A" if reviews.none?
+    self.rating = reviews.average(:rating)
   end
-
 end
