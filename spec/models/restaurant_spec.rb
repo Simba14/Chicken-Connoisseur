@@ -33,6 +33,16 @@ describe Restaurant, type: :model do
         restaurant.reviews.create(rating: 4)
         expect(restaurant.average_rating).to eq 4
       end
+
+    context '2 reviews' do
+      it 'returns the average rating' do
+        user = User.create(email: 'test@123.com', password: '123456', password_confirmation: '123456')
+        restaurant = Restaurant.create(name: 'Sams Beef', user_id: user.id)
+        restaurant.reviews.create(rating: 2)
+        restaurant.reviews.create(rating: 4)
+        expect(restaurant.average_rating).to eq 3
+      end
+    end
     end
   end
 end

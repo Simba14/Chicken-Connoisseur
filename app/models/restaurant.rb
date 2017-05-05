@@ -15,7 +15,11 @@ class Restaurant < ApplicationRecord
     if self.reviews == []
       "N/A"
     else
-      self.reviews.first.rating
+      total = 0
+      self.reviews.each do |review|
+        total += review.rating
+      end
+      self.rating = total / self.reviews.length
     end
   end
 

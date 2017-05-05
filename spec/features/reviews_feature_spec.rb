@@ -17,6 +17,10 @@ feature 'reviewing' do
     expect(page).to have_content 'so so'
   end
 
+  scenario 'displays "N/A" if no reviews' do
+    expect(page).to have_content('N/A')
+  end
+
   scenario 'displays an average rating for all reviews' do
     click_link 'Sign out'
     sign_up(email: 'sean@123.com')
