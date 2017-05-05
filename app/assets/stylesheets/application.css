@@ -23,12 +23,51 @@
   margin-bottom: 10px;
 }
 
+h1 {
+  text-align: center;
+  font-family: 'Bangers', cursive;
+  color: #f42020;
+  font-size: 400%;
+}
+
 body {
-  /*display: inline-block;*/
+  font-family: 'Share', cursive;
   padding: 30px;
   border: 30px solid transparent;
   -moz-border-image: url("http://www.clipartkid.com/images/432/chicken-border-printable-chicken-border-MnPdwT-clipart.jpg") 40 repeat;
   -webkit-border-image: url("http://www.clipartkid.com/images/432/chicken-border-printable-chicken-border-MnPdwT-clipart.jpg") 40 repeat;
   -o-border-image: url("http://www.clipartkid.com/images/432/chicken-border-printable-chicken-border-MnPdwT-clipart.jpg") 40 repeat;
   border-image: url("http://www.clipartkid.com/images/432/chicken-border-printable-chicken-border-MnPdwT-clipart.jpg") 40 repeat;
+}
+
+.single-restaurant {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: solid 1px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.session-btns {
+  margin: auto;
+  width: 40%;
+  text-align: center;
+  background-color: rgba(151, 141, 141, 0.22);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+img#logo {
+  max-height: 100px;
+  display: inline;
+}
+
+.restaurant-info {
+  margin: auto;
+  width: 50%;
+}
+
+.restaurant-feed {
+  margin: auto;
+  width: 50%;
 }

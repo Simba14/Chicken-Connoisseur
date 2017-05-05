@@ -1,17 +1,31 @@
-<p><%= @restaurant.name %></p>
-<p><%= image_tag @restaurant.image.url(:thumb) %> </p>
-<p><%= @restaurant.description %></p>
-<% @restaurant.reviews.each do |review| %>
-  <div id='review'>
-    <div id='rating'>
-      <%= star_rating(review.rating) %>
+<div class='restaurant-info'>
+  <h2><%= @restaurant.name %></h2>
+  <p><%= image_tag @restaurant.image.url(:medium) %> </p>
+  <p><%= @restaurant.description %></p>
+  <% unless @restaurant.address == nil %>
+  <p><%= @restaurant.address %></p>
+    <iframe
+      width="600"
+      height="450"
+      frameborder="0" style="border:0"
+      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDIwHY2tFt41UKgcZdrfwEvMmz4gI5_Vtg&q=<%=@restaurant.address%>"
+      allowfullscreen>
+    </iframe>
+  <% end %>
+</div>
+<div class='review-container'>
+  <% @restaurant.reviews.each do |review| %>
+    <div id='review'>
+      <div id='rating'>
+        <%= star_rating(review.rating) %>
+      </div>
+      <div id='thoughts'>
+        <%= review.thoughts %>
+      </div>
+      <div id='saltshaker'>
+        <%= pluralize review.endorsements.count, 'endorsement' %>
+        <%= link_to 'Endorse review', new_review_endorsement_path(review) %>
+      </div>
     </div>
-    <div id='thoughts'>
-      <%= review.thoughts %>
-    </div>
-    <div id='saltshaker'>
-      <%= pluralize review.endorsements.count, 'endorsement' %>
-      <%= link_to 'Endorse review', new_review_endorsement_path(review) %>
-    </div>
-  </div>
-<% end %>
+  <% end %>
+</div

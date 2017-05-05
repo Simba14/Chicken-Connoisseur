@@ -4,9 +4,10 @@ class Restaurant < ApplicationRecord
 
   has_many :reviews, dependent: :destroy
   belongs_to :user
+  has_attached_file :image, :styles => { :medium => '300x300>', :thumb => '100x100>' }, :default_url => "/images/:style/take_it_easy.jpg"
 
   validates :name, length: { minimum: 3 }, uniqueness: true
-  has_attached_file :image, :styles => { :medium => '300x300>', :thumb => '100x100>' }, :default_url => "/images/:style/take_it_easy.jpg"
+  validates :address, presence: true
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
   def build_review(review_params, user)
