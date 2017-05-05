@@ -20,7 +20,9 @@
         <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
       <% end %>
     </section>
-    <%= notice %>
+    <div class='notice'>
+      <%= notice %>
+    </div>
     <%= yield %>
   </body>
 </html>

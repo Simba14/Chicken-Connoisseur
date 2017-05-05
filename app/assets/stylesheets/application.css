@@ -40,6 +40,11 @@ body {
   border-image: url("http://www.clipartkid.com/images/432/chicken-border-printable-chicken-border-MnPdwT-clipart.jpg") 40 repeat;
 }
 
+.notice {
+  margin: 10px;
+  text-align: center;
+}
+
 .single-restaurant {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -70,4 +75,8 @@ img#logo {
 .restaurant-feed {
   margin: auto;
   width: 50%;
+}
+
+a#add-btn {
+  text-align: center;
 }
