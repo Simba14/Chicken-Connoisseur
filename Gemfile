@@ -7,6 +7,7 @@ end
 
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'omniauth-facebook'
+gem 'aws-sdk', '< 2.0'
 
 gem 'devise', git: 'https://github.com/plataformatec/devise.git'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
