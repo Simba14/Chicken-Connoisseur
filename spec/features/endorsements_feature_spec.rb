@@ -11,7 +11,7 @@ feature 'endorsing reviews' do
     # Restaurant.last.reviews.create(rating: 3, thoughts: 'It was an abomination')
   end
 
-  scenario 'user can endorse a review, which updates the review endorsement count' do
+  scenario 'user can endorse a review, which updates the review endorsement count', js: true do
     visit '/restaurants'
     click_link 'KFC'
     click_link 'Endorse review'

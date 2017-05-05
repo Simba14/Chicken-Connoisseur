@@ -3,12 +3,13 @@ ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
+require 'capybara/poltergeist'
+Capybara.javascript_driver = :poltergeist
+
 require 'spec_helper'
 require 'rspec/rails'
 
 require 'capybara/rails'
-require 'capybara/poltergeist'
-Capybara.javascript_driver = :poltergeist
 require 'support/database_cleaner'
 
 require_relative 'features/web_helpers'
