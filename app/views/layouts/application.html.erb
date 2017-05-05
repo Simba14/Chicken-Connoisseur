@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RailsYelp</title>
+    <title>Chicken Connoisseur</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Bangers|Original+Surfer|Share" rel="stylesheet">
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "Sign in", new_user_session_path %>
-      <%= link_to "Sign up", new_user_registration_path %>
-      <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
-    <% end %>
-
+    <div class='header'><a href='/'><img id='logo' src='https://image.flaticon.com/icons/svg/186/186684.svg' ></a><h1>The Chicken Connoisseur</h1></div>
+    <section class='session-btns'>
+      <% if user_signed_in? %>
+        <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to "Sign in", new_user_session_path %>
+        <%= link_to "Sign up", new_user_registration_path %>
+        <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+      <% end %>
+    </section>
     <%= notice %>
     <%= yield %>
   </body>

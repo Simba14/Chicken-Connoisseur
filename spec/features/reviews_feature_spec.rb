@@ -16,4 +16,28 @@ feature 'reviewing' do
     click_link 'KFC'
     expect(page).to have_content 'so so'
   end
+
+  scenario 'displays "N/A" if no reviews' do
+    expect(page).to have_content('N/A')
+  end
+
+  scenario 'displays an average rating for all reviews' do
+    click_link 'Sign out'
+    sign_up(email: 'sean@123.com')
+    leave_review('was alright I guess', 3)
+    click_link 'Sign out'
+    sign_up(email: 'pete@123.com')
+    leave_review('it was peng', 5)
+    expect(page).to have_content 'Average rating: 🔥🔥🔥🔥'
+  end
+
+  scenario 'displays the total number of ratings' do
+    click_link 'Sign out'
+    sign_up(email: 'sean@123.com')
+    leave_review('was alright I guess', 3)
+    click_link 'Sign out'
+    sign_up(email: 'pete@123.com')
+    leave_review('it was peng', 5)
+    expect(page).to have_content '2 ratings'
+  end
 end

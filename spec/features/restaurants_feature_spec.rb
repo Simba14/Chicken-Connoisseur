@@ -55,6 +55,7 @@ feature 'restaurants' do
       scenario 'prompts user to fill out a form then displays the new restaurant' do
         click_link 'Add a restaurant'
         fill_in 'Name', with: 'Sams Chicken'
+        fill_in 'Address', with: '351, Ballards Lane, North Finchley, N12 8LJ'
         click_button 'Create Restaurant'
         expect(page).to have_content 'Sams Chicken'
         expect(current_path).to eq '/restaurants'
@@ -64,6 +65,7 @@ feature 'restaurants' do
         click_link 'Add a restaurant'
         fill_in 'Name', with: 'Roast and Toast'
         fill_in 'Description', with: 'Best wrap'
+        fill_in 'Address', with: '351, Ballards Lane, North Finchley, N12 8LJ'
         attach_file('Image', Rails.root + "spec/fixtures/Roast.png")
         click_button 'Create Restaurant'
         expect(page).to have_css 'img'
@@ -73,6 +75,7 @@ feature 'restaurants' do
         scenario 'does not let you submit a name that is too short' do
           click_link 'Add a restaurant'
           fill_in 'Name', with: 'kf'
+          fill_in 'Address', with: '351, Ballards Lane, North Finchley, N12 8LJ'
           click_button 'Create Restaurant'
           expect(page).not_to have_css 'h2', text: 'kf'
           expect(page).to have_content 'error'
@@ -89,6 +92,7 @@ feature 'restaurants' do
         click_link 'Edit KFC'
         fill_in 'Name', with: 'Kentucky Fried Chicken'
         fill_in 'Description', with: 'Deep fried goodness'
+        fill_in 'Address', with: '351, Ballards Lane, North Finchley, N12 8LJ'
         click_button 'Update Restaurant'
         click_link 'Kentucky Fried Chicken'
         expect(page).to have_content 'Kentucky Fried Chicken'
