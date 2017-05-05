@@ -16,3 +16,19 @@
 .field_with_errors input {
   background-color: red;
 }
+
+#review {
+  border: solid 1px;
+  border-color: red;
+  margin-bottom: 10px;
+}
+
+body {
+  /*display: inline-block;*/
+  padding: 30px;
+  border: 30px solid transparent;
+  -moz-border-image: url("http://www.clipartkid.com/images/432/chicken-border-printable-chicken-border-MnPdwT-clipart.jpg") 40 repeat;
+  -webkit-border-image: url("http://www.clipartkid.com/images/432/chicken-border-printable-chicken-border-MnPdwT-clipart.jpg") 40 repeat;
+  -o-border-image: url("http://www.clipartkid.com/images/432/chicken-border-printable-chicken-border-MnPdwT-clipart.jpg") 40 repeat;
+  border-image: url("http://www.clipartkid.com/images/432/chicken-border-printable-chicken-border-MnPdwT-clipart.jpg") 40 repeat;
+}

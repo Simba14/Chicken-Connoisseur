@@ -60,6 +60,15 @@ feature 'restaurants' do
         expect(current_path).to eq '/restaurants'
       end
 
+      scenario 'with an image' do
+        click_link 'Add a restaurant'
+        fill_in 'Name', with: 'Roast and Toast'
+        fill_in 'Description', with: 'Best wrap'
+        attach_file('Image', Rails.root + "spec/fixtures/Roast.png")
+        click_button 'Create Restaurant'
+        expect(page).to have_css 'img'
+      end
+
       context 'an invalid restaurant' do
         scenario 'does not let you submit a name that is too short' do
           click_link 'Add a restaurant'
@@ -69,6 +78,7 @@ feature 'restaurants' do
           expect(page).to have_content 'error'
         end
       end
+
 
     end
 

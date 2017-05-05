@@ -1,8 +1,17 @@
 <p><%= @restaurant.name %></p>
+<p><%= image_tag @restaurant.image.url(:thumb) %> </p>
 <p><%= @restaurant.description %></p>
 <% @restaurant.reviews.each do |review| %>
   <div id='review'>
-    Thoughts: <%= review.thoughts %>
-    Rating: <%= review.rating %>
+    <div id='rating'>
+      <%= star_rating(review.rating) %>
+    </div>
+    <div id='thoughts'>
+      <%= review.thoughts %>
+    </div>
+    <div id='saltshaker'>
+      <%= pluralize review.endorsements.count, 'endorsement' %>
+      <%= link_to 'Endorse review', new_review_endorsement_path(review) %>
+    </div>
   </div>
 <% end %>
